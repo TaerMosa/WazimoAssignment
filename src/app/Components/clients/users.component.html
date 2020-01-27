@@ -1,0 +1,55 @@
+
+  <div class="container">
+    <!-- Data Grid Config -->
+    <!-- #dataGrid = the same instance of the childComponent  -->
+    <!--datasource = users array , the given dataSet-->
+    <dx-data-grid #dataGrid
+      id="gridContainer"
+      [showBorders]="true"
+      [dataSource]="users"
+      [columnAutoWidth]="true"
+      [rowAlternationEnabled]="true"
+      [wordWrapEnabled]="true"
+      [stateStoring]="true">
+      <!--pagenation-->
+      <dxo-paging [pageSize]="10"> </dxo-paging>
+      <dxo-pager [showPageSizeSelector]="true"
+       [showInfo]="true" infoText="Page {0} of {1} (total {2} users)"
+        [allowedPageSizes]="[10, 15, 25]" [showNavigationButtons]="true" >
+      </dxo-pager>
+      <!--filtering -->
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <!--sorting -->
+      <dxo-sorting mode="single"></dxo-sorting>
+      <!--editing like (add remove users)-->
+      <dxo-editing [allowUpdating]="false" [allowAdding]="false"
+       [allowDeleting]="false"> </dxo-editing>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <!--searching -->
+      <dxo-search-panel [visible]="true" [searchVisibleColumnsOnly]="true">
+      </dxo-search-panel>
+      <!--export table to xlsx file -->
+      <dxo-export [enabled]="true" fileName="usersReport"></dxo-export>
+
+      <!-- Columns config -->
+      <!-- dataFiled = the same filed defined in user object -->
+      <dxi-column dataField="id" caption="Id" dataType="number"
+      [allowFiltering]="true" [width]="55"
+       [allowSorting]="true" [allowSearch]="true"></dxi-column>
+
+      <dxi-column dataField="first_name" caption="First Name" dataType="string"
+        [minWidth]="150"></dxi-column>
+
+      <dxi-column dataField="last_name" caption="Last Name" dataType="string"
+        [minWidth]="150"></dxi-column>
+
+      <dxi-column dataField="email" caption="Email" dataType="string"
+       [minWidth]="250"></dxi-column>
+
+       <dxi-column dataField="gender" caption="Gender" dataType="string"
+       [minWidth]="250"></dxi-column>
+
+       <dxi-column dataField="ip_address" caption="IP Adress" dataType="string"
+       [minWidth]="250"></dxi-column>
+    </dx-data-grid>
+  </div>

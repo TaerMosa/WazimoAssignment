@@ -1,0 +1,8 @@
+{
+    "/static.aoni.io/*": {
+        "target": "https://storage.googleapis.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
